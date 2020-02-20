@@ -21,7 +21,7 @@ def sample_mask(idx, l):
     return np.array(mask, dtype=np.bool)
 
 
-def load_data_custom():
+def load_data(dummy_arg):
 
     # First we load this data
     features = pkl.load(
