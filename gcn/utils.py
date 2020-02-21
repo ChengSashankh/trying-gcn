@@ -4,6 +4,7 @@ import networkx as nx
 import scipy.sparse as sp
 from scipy.sparse.linalg.eigen.arpack import eigsh
 import sys
+import random
 
 
 def parse_index_file(filename):
@@ -28,6 +29,7 @@ def load_data():
         open('/home/c/cksash/kdd/node_vectors_joined.pkl', 'rb')
     )
 
+    num_nodes = features.shape[0]
     features = sp.csr_matrix(features)
 
     adj_mat = pkl.load(
@@ -41,7 +43,7 @@ def load_data():
     )
 
     # Now we perform the train-test-val split
-    indices = list(range(10))
+    indices = list(range(num_nodes))
     random.shuffle(indices)
 
     train_ratio = 0.7
