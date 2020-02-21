@@ -21,7 +21,7 @@ def sample_mask(idx, l):
     return np.array(mask, dtype=np.bool)
 
 
-def load_data(dummy_arg):
+def load_data():
 
     # First we load this data
     features = pkl.load(
@@ -59,6 +59,9 @@ def load_data(dummy_arg):
     indices = indices[int(val_ratio * total_elements):]
 
     test_indices = indices
+    print(train_indices)
+    print(val_indices)
+    print(test_indices)
 
     # Initialize the masks
     train_mask = sample_mask(train_indices, labels.shape[0])
